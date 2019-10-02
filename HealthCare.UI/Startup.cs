@@ -23,6 +23,8 @@ namespace HealthCare.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<Services.IContactService, Services.ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
