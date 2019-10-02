@@ -1,3 +1,4 @@
+using HealthCare.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,8 @@ namespace HealthCare.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            services.AddScoped<IHealthCareUOW, HealthCareUOW>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

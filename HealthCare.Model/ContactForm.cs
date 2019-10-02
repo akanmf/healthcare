@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HealthCare.Models
+namespace HealthCare.Model
 {
     public partial class ContactForm
     {
@@ -10,6 +10,6 @@ namespace HealthCare.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Message { get; set; }
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

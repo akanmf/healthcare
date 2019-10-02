@@ -1,4 +1,4 @@
-﻿using HealthCare.Models;
+﻿using HealthCare.Model;
 using RestSharp;
 using System;
 using System.Collections.Generic;
