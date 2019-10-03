@@ -15,11 +15,11 @@ namespace HealthCare.UI.Services
     public class ContactService : IContactService
     {
         public string InsertContactForm(ContactForm form)
-        {
-            var client = new RestClient("http://localhost:55327/");
-            var request = new RestRequest("api/ContactForm", Method.POST, DataFormat.Json);            
-            request.AddJsonBody(form);
-            var resp=client.Execute(request);
+        {           
+            var request = 
+                new RestRequest("api/ContactForm", Method.POST, DataFormat.Json)
+                .AddJsonBody(form);
+            var resp=Globals.ApiClient.Execute(request);
             return string.Empty;
         }
     }

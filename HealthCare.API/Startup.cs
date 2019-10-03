@@ -1,4 +1,6 @@
+using HealthCare.API.Services;
 using HealthCare.Data;
+using HealthCare.Model.ServiceContracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +33,7 @@ namespace HealthCare.API
             });
 
             services.AddScoped<IHealthCareUOW, HealthCareUOW>();
+            services.AddScoped<ITranslationService, TranslationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

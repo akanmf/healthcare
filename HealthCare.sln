@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCare.API", "HealthCar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCare.Data", "HealthCare.Data\HealthCare.Data.csproj", "{0622F99C-806B-4C7B-BE9E-978D1DA198BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Model", "HealthCare.Model\HealthCare.Model.csproj", "{868DFC23-C044-4BB9-96DB-0A4C04FD1284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCare.Model", "HealthCare.Model\HealthCare.Model.csproj", "{868DFC23-C044-4BB9-96DB-0A4C04FD1284}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F405729-B588-4510-9FFF-A2E25E9BC261}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

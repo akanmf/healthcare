@@ -2,6 +2,7 @@
 using HealthCare.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
 
 namespace HealthCare.Data
 {
@@ -11,13 +12,27 @@ namespace HealthCare.Data
 
     public partial class HealthCareContext : DbContext
     {
+
+        public static readonly ILoggerFactory MyLoggerFactory
+            = LoggerFactory.Create(
+                builder =>
+                {
+                    builder
+                      .AddFilter((category, level) =>
+                                  category == DbLoggerCategory.Database.Command.Name
+                                  && level == LogLevel.Information)
+                      .AddDebug();
+                });
+
         internal HealthCareContext()
         {
+
         }
 
         public HealthCareContext(DbContextOptions<HealthCareContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<ContactForm> ContactForm { get; set; }
@@ -28,7 +43,9 @@ namespace HealthCare.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=HealthCare;Trusted_Connection=True;");
+                optionsBuilder
+                    .UseSqlServer("Server=.\\SQLExpress;Database=HealthCare;Trusted_Connection=True;")
+                    .UseLoggerFactory(MyLoggerFactory);
             }
         }
 
@@ -73,9 +90,9 @@ namespace HealthCare.Data
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Translation1)
+                entity.Property(e => e.Message)
                     .IsRequired()
-                    .HasColumnName("Translation")
+                    .HasColumnName("Message")
                     .IsUnicode(false);
             });
 

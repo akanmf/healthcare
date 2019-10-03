@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using HealthCare.Model.ServiceContracts;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,25 +12,36 @@ namespace HealthCare.UI.TagHelpers
     [HtmlTargetElement("MLT")]
     public class MultiLanguageTagHelper : TagHelper
     {
+        ITranslationService _translationService;
+
+        public MultiLanguageTagHelper(ITranslationService translationService)
+        {
+            _translationService = translationService;
+        }
+
+
         public string Key { get; set; }
-        public string Translation { get; set; }        
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+
+
+            var translation = _translationService.GetTranslation(Key, "tr_tr");
+
+
             output.TagName = "MLT";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            Translation = "Translation:" + Key;
 
-            if (string.IsNullOrEmpty(Translation))
+            if (translation == null)
             {
                 base.Process(context, output);
                 return;
             }
 
             var sb = new StringBuilder();
-            sb.AppendFormat("<a class='fa-edit'>E</a>: {0}", this.Translation);
-            
+            sb.AppendFormat("<a class='fa-edit'>E</a>: {0}", translation.Message);
+
             output.Content.SetHtmlContent(sb.ToString());
         }
     }

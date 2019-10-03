@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HealthCare.API.Services;
+using HealthCare.Model;
+using HealthCare.Model.ServiceContracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +14,19 @@ namespace HealthCare.API.Controllers
     [ApiController]
     public class TranslationController : ControllerBase
     {
-        // GET: api/Translation
-        [HttpGet]
-        public IEnumerable<string> Get()
+        ITranslationService _translationService;
+        public TranslationController(ITranslationService translationService)
         {
-            return new string[] { "value1", "value2" };
+            _translationService = translationService;
+        }
+
+
+        // GET: api/Translation/{language}/{key}
+        [HttpGet("{language}/{key}")]
+        public Translation Get(string language, string key)
+        {
+            var response = _translationService.GetTranslation(key, language);
+            return response;
         }
 
         // GET: api/Translation/5
