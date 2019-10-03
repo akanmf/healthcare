@@ -1,4 +1,6 @@
 ﻿using HealthCare.Model;
+using HealthCare.Model.ServiceContracts;
+using Microsoft.Extensions.Configuration;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -7,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace HealthCare.UI.Services
 {
-    public interface IContactService
-    {
-        string InsertContactForm(ContactForm form);
-    }
-
     public class ContactService : IContactService
     {
-        public string InsertContactForm(ContactForm form)
-        {           
-            var request = 
+        IConfiguration _config;
+        Globals _globals;
+        public ContactService(IConfiguration config, Globals globals)
+        {
+            _config = config;
+            _globals = globals;
+        }
+        public void InsertContactForm(ContactForm form)
+        {
+            var request =
                 new RestRequest("api/ContactForm", Method.POST, DataFormat.Json)
                 .AddJsonBody(form);
-            var resp=Globals.ApiClient.Execute(request);
-            return string.Empty;
+            var resp = _globals.ApiClient.Execute(request);
         }
     }
 }

@@ -34,6 +34,7 @@ namespace HealthCare.API
 
             services.AddScoped<IHealthCareUOW, HealthCareUOW>();
             services.AddScoped<ITranslationService, TranslationService>();
+            services.AddScoped<IContactService, ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

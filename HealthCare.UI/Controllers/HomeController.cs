@@ -20,6 +20,7 @@ namespace HealthCare.UI.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 

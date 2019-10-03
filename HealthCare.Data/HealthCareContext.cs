@@ -2,6 +2,7 @@
 using HealthCare.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace HealthCare.Data
@@ -12,6 +13,8 @@ namespace HealthCare.Data
 
     public partial class HealthCareContext : DbContext
     {
+        IConfiguration _configuration;
+
 
         public static readonly ILoggerFactory MyLoggerFactory
             = LoggerFactory.Create(
@@ -24,9 +27,9 @@ namespace HealthCare.Data
                       .AddDebug();
                 });
 
-        internal HealthCareContext()
+        internal HealthCareContext(IConfiguration configuration)
         {
-
+            _configuration = configuration;
         }
 
         public HealthCareContext(DbContextOptions<HealthCareContext> options)
@@ -44,7 +47,7 @@ namespace HealthCare.Data
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder
-                    .UseSqlServer("Server=.\\SQLExpress;Database=HealthCare;Trusted_Connection=True;")
+                    .UseSqlServer(_configuration["HealthCareDBConnectionString"])
                     .UseLoggerFactory(MyLoggerFactory);
             }
         }

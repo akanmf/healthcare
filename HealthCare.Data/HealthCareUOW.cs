@@ -1,5 +1,6 @@
 ﻿using HealthCare.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,15 @@ using System.Text;
 namespace HealthCare.Data
 {
     public class HealthCareUOW : IHealthCareUOW, IDisposable
-    {        
-        private DbContext context = new HealthCareContext();
+    {
+        IConfiguration _configuration;
+        public HealthCareUOW(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            context = new HealthCareContext(_configuration);
+        }
+
+        private DbContext context;
 
         GenericRepository<Translation> translationRepository;
         public GenericRepository<Translation> TranslationRepository

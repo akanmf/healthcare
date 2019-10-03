@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HealthCare.Data;
 using HealthCare.Model;
+using HealthCare.Model.ServiceContracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,22 +14,12 @@ namespace HealthCare.API.Controllers
     [ApiController]
     public class ContactFormController : ControllerBase
     {
-
-        IHealthCareUOW _healthCareContext;
-
-        public ContactFormController(IHealthCareUOW healthCareContext)
+        IContactService _contactService;
+        public ContactFormController(IContactService contactService)
         {
-            _healthCareContext = healthCareContext;
+            _contactService = contactService;
         }
 
-        // GET: api/Contact
-        [HttpGet]
-        public IEnumerable<ContactForm> Get()
-        {
-
-            var res= _healthCareContext.ContactFormRepository.Get().ToList();
-            return res;
-        }
 
         // GET: api/Contact/5
         [HttpGet("{id}")]
@@ -41,8 +32,7 @@ namespace HealthCare.API.Controllers
         [HttpPost]
         public void Post(ContactForm form)
         {
-            _healthCareContext.ContactFormRepository.Insert(form);
-            _healthCareContext.Save();
+            _contactService.InsertContactForm(form);
         }
 
         // PUT: api/Contact/5
