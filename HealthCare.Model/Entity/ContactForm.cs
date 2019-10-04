@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HealthCare.Model
+namespace HealthCare.Model.Entity
 {
     public partial class ContactForm
     {

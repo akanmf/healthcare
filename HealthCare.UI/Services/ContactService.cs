@@ -1,4 +1,5 @@
 ﻿using HealthCare.Model;
+using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
 using Microsoft.Extensions.Configuration;
 using RestSharp;

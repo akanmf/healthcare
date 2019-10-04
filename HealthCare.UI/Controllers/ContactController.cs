@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HealthCare.Model;
+using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
 using HealthCare.UI.Services;
 using Microsoft.AspNetCore.Mvc;

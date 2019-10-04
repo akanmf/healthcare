@@ -1,5 +1,6 @@
 ﻿using HealthCare.Data;
 using HealthCare.Model;
+using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
 using System;
 using System.Collections.Generic;

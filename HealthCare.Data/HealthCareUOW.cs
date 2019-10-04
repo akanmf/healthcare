@@ -1,4 +1,5 @@
 ﻿using HealthCare.Model;
+using HealthCare.Model.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;

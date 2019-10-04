@@ -25,22 +25,26 @@ namespace HealthCare.UI.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
 
-
             var translation = _translationService.GetTranslation(Key, "tr_tr");
 
 
             output.TagName = "MLT";
             output.TagMode = TagMode.StartTagAndEndTag;
 
+            string cssClass="btn btn-outline-success";
+
+            var sb = new StringBuilder();
 
             if (translation == null)
             {
-                base.Process(context, output);
-                return;
+                translation = new Model.Entity.Translation();
+                var c = output.GetChildContentAsync().Result;
+                translation.Key = Key;
+                translation.Message = c.GetContent();
+                cssClass = "btn btn-outline-danger";
             }
 
-            var sb = new StringBuilder();
-            sb.AppendFormat("<a class='fa-edit'>E</a>: {0}", translation.Message);
+            sb.AppendFormat($"<a class='{cssClass}' data-MessageKey='{Key}' data-toggle='modal' data-target='#exampleModal'>{translation.Message}</a>");
 
             output.Content.SetHtmlContent(sb.ToString());
         }

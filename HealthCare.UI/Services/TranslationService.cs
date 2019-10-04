@@ -1,4 +1,5 @@
 ﻿using HealthCare.Model;
+using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
 using Microsoft.Extensions.Configuration;
 using RestSharp;
@@ -13,7 +14,10 @@ namespace HealthCare.UI.Services
     public class TranslationService : ITranslationService
     {
         IConfiguration _config;
-
+        public TranslationService(IConfiguration config)
+        {
+            _config = config;
+        }
 
         public Translation GetTranslation(string key, string language)
         {

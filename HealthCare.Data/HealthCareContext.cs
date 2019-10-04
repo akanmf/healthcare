@@ -1,5 +1,6 @@
 ﻿using System;
 using HealthCare.Model;
+using HealthCare.Model.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HealthCare.Data;
 using HealthCare.Model;
+using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
