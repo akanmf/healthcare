@@ -1,8 +1,8 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-
-
+@using System.Text;
+@using HealthCare.Model;
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -16,10 +16,13 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
+                    @foreach (Language item in Globals.SupportedLanguages)
+                    {
+                        <div class="form-group">
+                            <label for="message-text-@item.Code" class="col-form-label">@item.Description</label>
+                            <textarea class="form-control" id="message-text-@item.Code"></textarea>
+                        </div>
+                    }
                 </form>
             </div>
             <div class="modal-footer">
@@ -40,13 +43,20 @@
             var modal = $(this);
 
             modal.find('.modal-title').text(messageKey);
-            $('#message-text').val('');
 
-            $.get("http://localhost:15000/api/translation/tr_tr/" + messageKey, function (data, status) {
-                $('#message-text').val(data.message);
-            });
+            @foreach (Language item in Globals.SupportedLanguages)
+            {
+                var str = $"$('#message-text-{item.Code}').val('');";
+                @Html.Raw(str);
+            };
 
-            
+            $.get("http://localhost:15000/api/translation/" + messageKey, function (dataList, status) {
+                 $.each(dataList, function(index, data) {
+                                $('#message-text-'+data.language).val(data.message);
+                    });
+                });
+
+
         })
 
     </script>

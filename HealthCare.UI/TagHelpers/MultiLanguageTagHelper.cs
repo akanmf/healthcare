@@ -44,7 +44,7 @@ namespace HealthCare.UI.TagHelpers
                 cssClass = "btn btn-outline-danger";
             }
 
-            sb.AppendFormat($"<a class='{cssClass}' data-MessageKey='{Key}' data-toggle='modal' data-target='#exampleModal'>{translation.Message}</a>");
+            sb.AppendFormat($"<a class='{cssClass}' data-messagekey='{Key}' data-toggle='modal' data-target='#exampleModal'>{translation.Message}</a>");
 
             output.Content.SetHtmlContent(sb.ToString());
         }

@@ -30,11 +30,12 @@ namespace HealthCare.API.Controllers
             return response;
         }
 
-        // GET: api/Translation/5
-        [HttpGet("{id}")]
-        public string Get(string id)
+        // GET: api/Translation/Hello
+        [HttpGet("{key}")]
+        public List<Translation> Get(string key)
         {
-            return "value";
+            var response = _translationService.GetTranslations(key);
+            return response.ToList();
         }
 
         // POST: api/Translation

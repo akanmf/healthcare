@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using HealthCare.Model;
+using Microsoft.Extensions.Configuration;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,17 @@ namespace HealthCare.UI
         {
             ApiClient = new RestClient(configuration["HealthCare.Api:Host"]);
             CONTENT_FOLDER_ROOT_PATH = "..";
+
+            SupportedLanguages = new List<Language>();
+            SupportedLanguages.Add(new Language { Code = "tr_tr", Description = "Türkçe" });
+            SupportedLanguages.Add(new Language { Code = "bs", Description = "Bosnian" });
+            SupportedLanguages.Add(new Language { Code = "en_us", Description = "Enlish" });
+            SupportedLanguages.Add(new Language { Code = "ar-sa", Description = "Arabic" });
+            SupportedLanguages.Add(new Language { Code = "es_es", Description = "Spanish" });
         }
 
         public static RestClient ApiClient { get; private set; }
         public static string CONTENT_FOLDER_ROOT_PATH { get; private set; }
+        public static List<Language> SupportedLanguages { get; private set; }
     }
 }

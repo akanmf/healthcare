@@ -25,7 +25,8 @@ namespace HealthCare.API.Services
 
         public IEnumerable<Translation> GetTranslations(string key)
         {
-            throw new NotImplementedException();
+            var result = _healthCareContext.TranslationRepository.Get(x => x.Key == key);
+            return result;
         }
 
         public void Insert(string key, string language, string translation)
