@@ -33,5 +33,21 @@ namespace HealthCare.API.Services
         {
             throw new NotImplementedException();
         }
+
+        public void InsertOrUpdate(Translation translation)
+        {
+            var entity = _healthCareContext.TranslationRepository.Get(x => x.Key == translation.Key && x.Language == translation.Language).FirstOrDefault();
+
+            if (entity == null)
+            {
+                _healthCareContext.TranslationRepository.Insert(translation);
+            }
+            else
+            {
+                entity.Message = translation.Message;
+                _healthCareContext.TranslationRepository.Update(entity);
+            }
+            _healthCareContext.Save();
+        }
     }
 }

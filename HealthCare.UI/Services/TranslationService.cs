@@ -38,5 +38,10 @@ namespace HealthCare.UI.Services
         {
             throw new NotImplementedException();
         }
+
+        public void InsertOrUpdate(Translation translation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

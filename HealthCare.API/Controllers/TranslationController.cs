@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using HealthCare.API.Services;
@@ -40,8 +41,12 @@ namespace HealthCare.API.Controllers
 
         // POST: api/Translation
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(List<Translation> translations)
         {
+            foreach (var item in translations)
+            {
+                _translationService.InsertOrUpdate(item);
+            }
         }
 
         // PUT: api/Translation/5

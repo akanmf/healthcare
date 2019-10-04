@@ -12,5 +12,7 @@ namespace HealthCare.Model.ServiceContracts
         public IEnumerable<Translation> GetTranslations(string key);
 
         public void Insert(string key, string language, string translation);
+
+        public void InsertOrUpdate(Translation translation);
     }
 }
