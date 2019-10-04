@@ -12,18 +12,16 @@ namespace HealthCare.UI.Services
     public class ContactService : IContactService
     {
         IConfiguration _config;
-        Globals _globals;
-        public ContactService(IConfiguration config, Globals globals)
+        public ContactService(IConfiguration config)
         {
             _config = config;
-            _globals = globals;
         }
         public void InsertContactForm(ContactForm form)
         {
             var request =
                 new RestRequest("api/ContactForm", Method.POST, DataFormat.Json)
                 .AddJsonBody(form);
-            var resp = _globals.ApiClient.Execute(request);
+            var resp = Globals.ApiClient.Execute(request);
         }
     }
 }
