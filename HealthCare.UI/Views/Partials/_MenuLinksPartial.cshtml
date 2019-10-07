@@ -1,0 +1,14 @@
+﻿@model MenuLinksPartialModel
+
+    <ul class="@Model.ULClass">
+        <li class="@Model.LIClass"><a href="index.html">Home</a></li>
+        <li class="@Model.LIClass"><a href="about.html">About us</a></li>
+        <li class="@Model.LIClass"><a href="services.html">Services</a></li>
+        <li class="@Model.LIClass"><a href="news.html">News</a></li>
+        <li class="@Model.LIClass">
+            @Html.ActionLink("Privacy", "Privacy", "Home")
+        </li>
+        <li class="@Model.LIClass">
+            @Html.ActionLink("Contact", "Index", "Contact")
+        </li>
+    </ul>
