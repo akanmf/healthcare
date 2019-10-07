@@ -21,31 +21,11 @@ namespace HealthCare.API.Controllers
             _contactService = contactService;
         }
 
-
-        // GET: api/Contact/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/Contact
         [HttpPost]
         public void Post(ContactForm form)
         {
             _contactService.InsertContactForm(form);
-        }
-
-        // PUT: api/Contact/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
