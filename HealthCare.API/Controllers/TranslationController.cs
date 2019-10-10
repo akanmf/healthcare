@@ -7,6 +7,7 @@ using HealthCare.API.Services;
 using HealthCare.Model;
 using HealthCare.Model.Entity;
 using HealthCare.Model.ServiceContracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +42,7 @@ namespace HealthCare.API.Controllers
 
         // POST: api/Translation
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public void Post(List<Translation> translations)
         {
             foreach (var item in translations)

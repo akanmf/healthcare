@@ -41,6 +41,7 @@ namespace HealthCare.Data
 
         public virtual DbSet<ContactForm> ContactForm { get; set; }
         public virtual DbSet<Translation> Translation { get; set; }
+        public virtual DbSet<AppUser> AppUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -98,6 +99,21 @@ namespace HealthCare.Data
                     .IsRequired()
                     .HasColumnName("Message")
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<AppUser>(entity =>
+            {
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FullName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                .HasMaxLength(500)
+                .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

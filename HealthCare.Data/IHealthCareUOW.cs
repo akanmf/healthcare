@@ -10,7 +10,9 @@ namespace HealthCare.Data
     {
         public GenericRepository<Translation> TranslationRepository { get; }
 
-        public GenericRepository<ContactForm> ContactFormRepository { get;}
+        public GenericRepository<ContactForm> ContactFormRepository { get; }
+
+        public GenericRepository<AppUser> AppUserRepository { get; }
 
         public void Save();
     }
