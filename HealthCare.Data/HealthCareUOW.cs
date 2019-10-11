@@ -45,6 +45,21 @@ namespace HealthCare.Data
             }
         }
 
+        private GenericRepository<AppUser> appUserRepository;
+        public GenericRepository<AppUser> AppUserRepository
+        {
+            get
+            {
+                if (this.appUserRepository == null)
+                {
+                    this.appUserRepository = new GenericRepository<AppUser>(context);
+                }
+                return this.appUserRepository;
+            }
+        }
+
+
+
         public void Save()
         {
             context.SaveChanges();

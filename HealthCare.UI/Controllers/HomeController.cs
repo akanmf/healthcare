@@ -20,8 +20,8 @@ namespace HealthCare.UI.Controllers
 
         public IActionResult Index()
         {
-
-            return View();
+            HomeViewModel model = new HomeViewModel(base.HttpContext);
+            return View(model);
         }
 
         public IActionResult Privacy()
