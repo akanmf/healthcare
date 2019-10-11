@@ -11,16 +11,16 @@ namespace HealthCare.UI.Services
 {
     public class AppUserService : IAppUserService
     {
-        public async Task<string> Login(LoginRequestModel loginRequest)
+        public  LoginResponse Login(LoginRequest loginRequest)
         {
             var request =
                  new RestRequest("api/AppUser", Method.POST, DataFormat.Json)
                  .AddJsonBody(loginRequest);
-            var resp =Globals.ApiClient.Execute(request);
-            return resp.Content;
+            var resp = Globals.ApiClient.Execute<LoginResponse>(request);
+            return resp.Data;
         }
 
-        public Task<AppUser> Register(AppUser user)
+        public AppUser Register(AppUser user)
         {
             throw new NotImplementedException();
         }

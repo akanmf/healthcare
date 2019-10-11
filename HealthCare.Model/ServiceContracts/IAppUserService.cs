@@ -8,8 +8,8 @@ namespace HealthCare.Model.ServiceContracts
 {
     public interface IAppUserService
     {
-        public Task<AppUser> Register(AppUser user);
-        public Task<string> Login(LoginRequestModel loginRequest);
+        public AppUser Register(AppUser user);
+        public LoginResponse Login(LoginRequest loginRequest);
 
     }
 }

@@ -22,20 +22,20 @@ namespace HealthCare.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginRequestModel request)
+        public IActionResult Login(LoginRequest request)
         {
-            var token = await _appUserService.Login(request);
-            if (string.IsNullOrEmpty(token))
+            var response =  _appUserService.Login(request);
+            if (!string.IsNullOrEmpty(response.ErrorMessage))
             {
-                return Unauthorized();
+                return Unauthorized(response);
             }
-            return Ok(token);
+            return Ok(response);
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] AppUser request)
+        public IActionResult Register([FromBody] AppUser request)
         {
-            await _appUserService.Register(request);
+            _appUserService.Register(request);
 
             return Ok();
         }

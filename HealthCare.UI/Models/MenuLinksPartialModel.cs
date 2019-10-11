@@ -7,7 +7,10 @@ namespace HealthCare.UI.Models
 {
     public class MenuLinksPartialModel
     {
-
+        public MenuLinksPartialModel()
+        {
+  
+        }
         public string ULClass { get; set; }
         public string LIClass { get; set; }
 
