@@ -27,8 +27,23 @@ namespace HealthCare.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
+
+
             services.AddScoped<IContactService, Services.ContactService>();
             services.AddScoped<ITranslationService, TranslationService>();
+            services.AddScoped<IAppUserService, AppUserService>();
+
             Globals.SetGlobals(Configuration);
         }
 
@@ -36,6 +51,7 @@ namespace HealthCare.UI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
+            app.UseSession();
 
             if (env.IsDevelopment())
             {
