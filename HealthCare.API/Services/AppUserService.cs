@@ -44,6 +44,7 @@ namespace HealthCare.API.Services
                     new Claim(ClaimTypes.NameIdentifier,userFromRepo.Id.ToString()),
                     new Claim(ClaimTypes.Email, userFromRepo.Email),
                     new Claim(ClaimTypes.Name, userFromRepo.FullName),
+                    //TODO: these roles must be added dynamicaly.
                     new Claim(ClaimTypes.Role,"Admin"),
                     new Claim(ClaimTypes.Role,"Writer")
                 }),
