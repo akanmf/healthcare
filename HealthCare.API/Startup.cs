@@ -32,7 +32,7 @@ namespace HealthCare.API
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
-                options.Cookie.HttpOnly = true;                
+                options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
 
@@ -78,7 +78,10 @@ namespace HealthCare.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            app.UseCors(x =>
+            {
+                x.AllowAnyHeader().AllowAnyMethod().AllowCredentials();                
+            });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
