@@ -28,6 +28,8 @@ namespace HealthCare.UI
         public static RestClient ApiClient { get; private set; }
         public static string CONTENT_FOLDER_ROOT_PATH { get; private set; }
         public static List<Language> SupportedLanguages { get; private set; }
+
+        public static readonly string LOGGED_IN_USER_SESSION_KEY="LoggedInUser";
         
     }
 }

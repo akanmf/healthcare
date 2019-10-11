@@ -38,7 +38,7 @@ namespace HealthCare.UI.Controllers
                 return RedirectToAction("Index");
             }
 
-            HttpContext.Session.Set("AppUser", response);
+            HttpContext.Session.Set(Globals.LOGGED_IN_USER_SESSION_KEY, response);
             Globals.ApiClient.AddDefaultHeader("Authentication", $"Bearer {response.Token}");
 
             return RedirectToAction("Index", "Home");
@@ -50,6 +50,13 @@ namespace HealthCare.UI.Controllers
             _appUserService.Register(request);
 
             return Ok();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove(Globals.LOGGED_IN_USER_SESSION_KEY);
+            Globals.ApiClient.RemoveDefaultParameter("Authentication");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

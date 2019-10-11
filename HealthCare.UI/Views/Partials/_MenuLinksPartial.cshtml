@@ -10,9 +10,20 @@
         </li>
         <li class="@Model.LIClass">
             @Html.ActionLink("Contact", "Index", "Contact")
-        </li>        
-        <li class="@Model.LIClass">
-            @Html.ActionLink("Contact", "Index", "Contact")
         </li>
+
+
+        @if (Model.LoggedInUser == null)
+        {
+            <li class="@Model.LIClass">
+                @Html.ActionLink("Login", "Index", "Login")
+            </li>
+        }
+        else
+        {
+            <li class="@Model.LIClass">
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </li>
+        }
 
     </ul>

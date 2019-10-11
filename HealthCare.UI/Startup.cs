@@ -43,7 +43,7 @@ namespace HealthCare.UI
             services.AddScoped<IContactService, Services.ContactService>();
             services.AddScoped<ITranslationService, TranslationService>();
             services.AddScoped<IAppUserService, AppUserService>();
-
+            
             Globals.SetGlobals(Configuration);
         }
 
