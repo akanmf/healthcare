@@ -81,7 +81,8 @@ namespace HealthCare.API
             app.UseCors(x =>
             {
                 x.AllowAnyHeader().AllowAnyMethod().AllowCredentials();
-                x.WithOrigins("http://localhost:15000", "http://localhost:15001");
+                var allowedOrigins = Configuration.GetSection("AllowedOrigins").Value.ToString().Split(";");
+                x.WithOrigins(allowedOrigins);
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
