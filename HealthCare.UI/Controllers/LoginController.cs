@@ -39,7 +39,10 @@ namespace HealthCare.UI.Controllers
             }
 
             HttpContext.Session.Set(Globals.LOGGED_IN_USER_SESSION_KEY, response);
+            HttpContext.Response.Cookies.Append(Globals.LOGGED_IN_USER_TOKEN_COOKIE_KEY, response.Token);
+            
             Globals.ApiClient.AddDefaultHeader("Authentication", $"Bearer {response.Token}");
+
 
             return RedirectToAction("Index", "Home");
         }

@@ -30,6 +30,8 @@ namespace HealthCare.UI
         public static List<Language> SupportedLanguages { get; private set; }
 
         public static readonly string LOGGED_IN_USER_SESSION_KEY="LoggedInUser";
-        
+
+        public static readonly string LOGGED_IN_USER_TOKEN_COOKIE_KEY = "USER_TOKEN";
+
     }
 }
