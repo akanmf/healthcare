@@ -6,6 +6,7 @@ using HealthCare.Model.ServiceContracts;
 using HealthCare.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -43,7 +44,9 @@ namespace HealthCare.UI
             services.AddScoped<IContactService, Services.ContactService>();
             services.AddScoped<ITranslationService, TranslationService>();
             services.AddScoped<IAppUserService, AppUserService>();
-            
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             Globals.SetGlobals(Configuration);
         }
 

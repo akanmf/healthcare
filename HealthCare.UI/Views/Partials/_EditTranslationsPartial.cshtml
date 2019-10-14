@@ -53,22 +53,22 @@
             }
 
 
-              //$.post("http://localhost:15000/api/translation/",
-              //    translationList,
-              //    function(data, status){
-              //      alert("Data: " + data + "\nStatus: " + status);
-              //    });
 
             $.ajax({
-                method: "POST",
-                url: "http://localhost:15000/api/translation/",
+                url: 'http://localhost:15000/api/translation/',
+                type: 'post',
                 data: JSON.stringify(translationList),
-                contentType: 'application/json'
-                }).done(function (result) {
-                      alert('Translations Saved Successfully');
-                }).fail(function(xhr) {
-                    alert(xhr.responseText);
-                });
+                headers: {
+                   "Authorization":"Bearer " + $.cookie("@Globals.LOGGED_IN_USER_TOKEN_COOKIE_KEY")                    
+                },
+                contentType: 'application/json',
+                success: function (data) {
+                   alert('Translations Saved Successfully');
+                },
+                fail: function (resp) {
+                    alert('Hata oluştu');
+                }
+            });
 
         }
 
