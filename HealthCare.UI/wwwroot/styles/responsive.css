@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -261,6 +261,9 @@
 	{
 		font-size: 36px;
 	}
+    .selectLanguageMobile {
+        display:inline-block;
+    }
 }
 
 /************

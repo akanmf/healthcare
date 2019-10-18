@@ -65,16 +65,25 @@
                     <div class="row">
 
                         <div class="col">
-                            <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="header_content d-flex flex-row align-items-center justify-content-end">
                                 <nav class="main_nav ml-auto">
                                     @{Html.RenderPartial($"../Partials/_MenuLinksPartial", new MenuLinksPartialModel(loggedInUser: LayoutModel.LoginUser));}
                                 </nav>
-                                <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                                <div class="selectLanguageMobile">
+                                    @{Html.RenderPartial($"../Partials/_SelectLanguagePartial");}
+                                </div>
+                                <div class="hamburger">
+
+                                    <i class="fa fa-bars ml-auto" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
 
             <!-- Logo -->
             <div class="logo_container_outer">
@@ -93,7 +102,7 @@
                                     </div>
                                 </a>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
