@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -385,10 +385,10 @@ section
 	font-weight: 500;
 	color: #323232;
 }
-.hamburger
-{
-	display: none;
-	cursor: pointer;
+.hamburger {
+    display: none;
+    cursor: pointer;
+    margin-left: 10px;
 }
 .hamburger i
 {
@@ -1307,4 +1307,9 @@ section
 .footer_social ul li a i:hover
 {
 	color: #FFFFFF;
+}
+
+.selectLanguageMobile {
+    all: initial;
+    display: none;
 }

@@ -1,6 +1,7 @@
 ﻿using HealthCare.Model;
 using HealthCare.Model.ServiceContracts;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Caching.Distributed;
@@ -18,13 +19,16 @@ namespace HealthCare.UI.TagHelpers
     {
         ITranslationService _translationService;
         ISession _session;
+        IRequestCultureFeature _cultureFeature;
 
-        public MultiLanguageTagHelper(ITranslationService translationService, IHttpContextAccessor httpContextAccessor)
+        public MultiLanguageTagHelper(
+            ITranslationService translationService, 
+            IHttpContextAccessor httpContextAccessor
+            )
         {
             _translationService = translationService;
             _session = httpContextAccessor.HttpContext.Session ;
-
-            
+            _cultureFeature = httpContextAccessor.HttpContext.Features.Get<IRequestCultureFeature>();
         }
 
 
@@ -35,8 +39,9 @@ namespace HealthCare.UI.TagHelpers
 
             var loggedInUser = _session.Get<LoginResponse>(Globals.LOGGED_IN_USER_SESSION_KEY);
 
+            var cultureCode = _cultureFeature.RequestCulture.Culture.Name;
 
-            var translation = _translationService.GetTranslation(Key, "tr_tr");
+            var translation = _translationService.GetTranslation(Key, cultureCode);
 
 
             output.TagName = "MLT";
@@ -46,7 +51,7 @@ namespace HealthCare.UI.TagHelpers
 
             var sb = new StringBuilder();
 
-            if (translation == null)
+            if (translation == null || string.IsNullOrEmpty(translation.Message))
             {
                 translation = new Model.Entity.Translation();
                 var c = output.GetChildContentAsync().Result;
