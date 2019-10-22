@@ -29,4 +29,8 @@
     <ProjectReference Include="..\HealthCare.Model\HealthCare.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

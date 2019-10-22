@@ -1,23 +1,23 @@
 ﻿@model MenuLinksPartialModel
 
 <ul class="@Model.ULClass">
-    <li class="@Model.LIClass"><a href="index.html">Home</a></li>
-    <li class="@Model.LIClass"><a href="about.html">About us</a></li>
-    <li class="@Model.LIClass"><a href="services.html">Services</a></li>
-    <li class="@Model.LIClass"><a href="news.html">News</a></li>
+    <li class="@Model.LIClass"><a href="index.html"><MLT Key="HOME">Home</MLT></a></li>
+    <li class="@Model.LIClass"><a href="about.html"> @Localization.Html("ABOUT_US", "About Us")</a></li>
+    <li class="@Model.LIClass"><a href="services.html"><MLT Key="SERVICES">Services</MLT></a></li>
+    <li class="@Model.LIClass"><a href="news.html"><MLT Key="NEWS">News</MLT></a></li>
     <li class="@Model.LIClass">
-        @Html.ActionLink("Privacy", "Privacy", "Home")
+        <a href="~/home/Privacy"> @Localization.Html("PRIVACY", "Privacy")</a>
     </li>
     <li class="@Model.LIClass">
-        @Html.ActionLink("Contact", "Index", "Contact")
+        <a href="~/Contact"> @Localization.Html("CONTACT", "Contact")</a>
     </li>
 
 
     @if (Model.LoggedInUser != null)
     {
         <li class="@Model.LIClass">
-            @Html.ActionLink("Logout", "Logout", "Login")
+            <a href="~/Login/Logout"> @Localization.Html("LOGOUT")</a>
         </li>
     }
 
-</ul>
+</ul> 
