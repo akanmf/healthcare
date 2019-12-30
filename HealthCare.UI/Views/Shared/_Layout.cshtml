@@ -46,8 +46,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-                                <div class="top_bar_item"><a href="#">FAQ</a></div>
-                                <div class="top_bar_item"><a href="#">Request an Appointment</a></div>
+                                <div class="top_bar_item"><a href="#"><MLT Key="FAQ">FAQ</MLT></a></div>
+                                <div class="top_bar_item"><a href="#"><MLT Key="REQUEST_AN_APPOINTMENT">Request an Appointment</MLT></a></div>
                                 <div class="d-flex flex-row align-items-end justify-content-start ml-auto">
 
                                     @{Html.RenderPartial($"../Partials/_SelectLanguagePartial");}
@@ -127,8 +127,8 @@
                 @{Html.RenderPartial($"../Partials/_MenuLinksPartial", new MenuLinksPartialModel("menu_list menu_mm", "menu_item menu_mm", LayoutModel.LoginUser)); }
             </div>
             <div class="menu_extra">
-                <div class="menu_appointment"><a href="#">Request an Appointment</a></div>
-                <div class="menu_emergencies">For Emergencies: +563 47558 623</div>
+                <div class="menu_appointment"><a href="#"><MLT Key="REQUEST_AN_APPOINTMENT">Request an Appointment</MLT></a></div>
+                <div class="menu_emergencies"><MLT Key="FOR_EMERGENCIES">For Emergencies</MLT>:<MLT Key="EMERGENCY_PHONE_NUMBER">+563 47558 623</MLT></div>
             </div>
 
         </div>
@@ -162,9 +162,9 @@
                                 <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Curabitur ante leo, finibus quis est ut, tempor tincidunt ipsum.</p>
                             </div>
                             <ul class="footer_about_list">
-                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/phone-call.svg" alt=""></div><span>+45 677 8993000 223</span></li>
-                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/envelope.svg" alt=""></div><span>office@template.com</span></li>
-                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/placeholder.svg" alt=""></div><span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span></li>
+                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/phone-call.svg" alt=""></div><span><MLT Key="OFFICE_PHONE_NUMBER">+45 677 8993000 223</MLT></span></li>
+                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/envelope.svg" alt=""></div><span><MLT Key="OFFICE_MAIL_ADDRESS">office@template.com</MLT></span></li>
+                                <li><div class="footer_about_icon"><img src="@Globals.CONTENT_FOLDER_ROOT_PATH/images/placeholder.svg" alt=""></div><span><MLT Key="OFFICE_ADDRESS">Main Str. no 45-46, b3, 56832, Los Angeles, CA</MLT></span></li>
                             </ul>
                         </div>
                     </div>
@@ -172,20 +172,18 @@
                     <!-- Footer - Links -->
                     <div class="col-lg-4 footer_col">
                         <div class="footer_links footer_column">
-                            <div class="footer_title">Useful Links</div>
+                            <div class="footer_title"><MLT Key="USEFUL_LINKS">Useful Links</MLT></div>
                             <ul>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Apply for a Job</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Our Partners</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Free services</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Our Screening Program</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#"><MLT Key="TESTIMONIALS">Testimonials</MLT></a></li>
+                                <li><a href="#"><MLT Key="FAQ">FAQ</MLT></a></li>                                
+                                <li><a href="#"><MLT Key="TERMS&CONDITIONS">Terms & Conditions</MLT></a></li>
+                                <li><a href="#"><MLT Key="OUR_PARTNERS">Our Partners</MLT></a></li>
+                                <li><a href="#"><MLT Key="SERVICES">Services</MLT></a></li>
+                                <li><a href="#"><MLT Key="FREE_SERVICES">Free services</MLT></a></li>
+                                <li><a href="#"><MLT Key="ABOUT_US">About us</MLT></a></li>
+                                <li><a href="#"><MLT Key="NEWS">News</MLT></a></li>
+                                <li><a href="#"><MLT Key="CONTACT">Contact</MLT></a></li>                                
+                                <li><a href="#"><MLT Key="FAQ">FAQ</MLT></a></li>
                             </ul>
                         </div>
                     </div>
@@ -193,7 +191,7 @@
                     <!-- Footer - News -->
                     <div class="col-lg-4 footer_col">
                         <div class="footer_news footer_column">
-                            <div class="footer_title">Useful Links</div>
+                            <div class="footer_title"><MLT Key="USEFUL_LINKS">Useful Links</MLT></div>
                             <ul>
                                 <li>
                                     <div class="footer_news_title"><a href="news.html">Aliquam ac eleifend metus</a></div>

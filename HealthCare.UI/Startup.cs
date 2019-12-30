@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using HealthCare.Model.ServiceContracts;
+using HealthCare.UI.Contracts;
 using HealthCare.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,9 +47,8 @@ namespace HealthCare.UI
             services.AddScoped<IContactService, Services.ContactService>();
             services.AddScoped<ITranslationService, TranslationService>();
             services.AddScoped<IAppUserService, AppUserService>();
-
+            services.AddScoped<LocalizationServiceBase, HtmlContentLocalizationService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 
 
             #region Localizaiton
