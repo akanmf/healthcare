@@ -1137,7 +1137,8 @@ section
 {
 	width: 100%;
 	background: #060b3a;
-	padding-bottom: 77px;
+	padding-bottom: 10px;
+	padding-top:10px;
 }
 .footer_logo_container
 {
